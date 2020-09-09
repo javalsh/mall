@@ -38,6 +38,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
 		<lombok.version>1.18.10</lombok.version>
 	</properties>
 	<!-- 项目依赖管理父项目只是声明依赖，子项目需要写明需要的依赖(可以省略版本信息) -->
@@ -54,7 +55,7 @@
 			<dependency>
 				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-				<version>2.2.1.RELEASE</version>
+				<version>${spring.cloud.alibaba.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
