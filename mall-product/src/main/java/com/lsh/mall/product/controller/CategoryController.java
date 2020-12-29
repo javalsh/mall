@@ -1,6 +1,7 @@
 package com.lsh.mall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,16 @@ import com.lsh.common.utils.R;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    /**
+     * 列表树结构
+     */
+    @RequestMapping("/tree")
+    //@RequiresPermissions("product:category:list")
+    public R tree(){
+        List<CategoryEntity> list = categoryService.listWithTree();
+        return R.ok().put("data", list);
+    }
 
     /**
      * 列表

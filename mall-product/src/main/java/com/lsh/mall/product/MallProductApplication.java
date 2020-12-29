@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @MapperScan("com.lsh.mall.product.dao")
 @SpringBootApplication
-public class DemoApplication {
+public class MallProductApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(MallProductApplication.class, args);
 	}
 
 }
