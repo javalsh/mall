@@ -30,7 +30,6 @@ public class SkuInfoController {
      * 列表
      */
     @GetMapping("/list")
-    //@RequiresPermissions("product:skuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = skuInfoService.queryPageByCondition(params);
 

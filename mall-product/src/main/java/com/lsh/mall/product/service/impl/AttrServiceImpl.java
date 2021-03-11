@@ -5,9 +5,7 @@ import com.lsh.common.constant.ProductConstant;
 import com.lsh.mall.product.dao.AttrAttrgroupRelationDao;
 import com.lsh.mall.product.dao.AttrGroupDao;
 import com.lsh.mall.product.dao.CategoryDao;
-import com.lsh.mall.product.entity.AttrAttrgroupRelationEntity;
-import com.lsh.mall.product.entity.AttrGroupEntity;
-import com.lsh.mall.product.entity.CategoryEntity;
+import com.lsh.mall.product.entity.*;
 import com.lsh.mall.product.service.CategoryService;
 import com.lsh.mall.product.vo.AttrGroupRelationVo;
 import com.lsh.mall.product.vo.AttrRespVo;
@@ -27,7 +25,6 @@ import com.lsh.common.utils.PageUtils;
 import com.lsh.common.utils.Query;
 
 import com.lsh.mall.product.dao.AttrDao;
-import com.lsh.mall.product.entity.AttrEntity;
 import com.lsh.mall.product.service.AttrService;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -220,5 +217,8 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
         return pageUtils;
     }
 
-
+    @Override
+    public List<Long> selectSearchAttrIds(List<Long> attrIds) {
+        return baseMapper.selectSearchAttrIds(attrIds);
+    }
 }
