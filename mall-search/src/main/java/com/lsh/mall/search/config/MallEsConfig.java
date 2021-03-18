@@ -1,13 +1,15 @@
 package com.lsh.mall.search.config;
 
-import lombok.Value;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
 
 /**
  * @author Liu Shaohua
@@ -23,10 +25,9 @@ public class MallEsConfig {
     }
 
     @Bean
-    public RestHighLevelClient esRestClient(){
-
+    public RestHighLevelClient esRestClient(@Value("${spring.elasticsearch.rest.uris}") List<String> uris){
         //TODO 修改为线上的地址
-        RestClientBuilder builder = RestClient.builder(new HttpHost("127.0.0.1", 9200, "http"));
+        RestClientBuilder builder = RestClient.builder(HttpHost.create(uris.get(0)));
         RestHighLevelClient client = new RestHighLevelClient(builder);
         return client;
     }
